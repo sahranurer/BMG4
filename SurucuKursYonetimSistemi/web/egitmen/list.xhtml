@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="/template/admin.xhtml">
+ 
+    <ui:define name="content">          
+            <h:form>
+                <h:commandButton styleClass="btn btn-info" action="/index" value="ANASAYFAYA DONMEK İÇİN TIKLAYINIZ"/>
+                <h:commandButton styleClass="btn btn-light" action="/egitmen/create" value="Yeni bir Egitmen"/>
+
+                <h:dataTable styleClass="table table-hover table-striped" value="#{EgitmenBean.read}" var="cat">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                            #{cat.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">AD</f:facet>
+                            #{cat.ad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">SOYAD</f:facet>
+                            #{cat.soyad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">BRANS</f:facet>
+                            #{cat.brans}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ADMİNİSTRATION</f:facet>
+                        <h:commandButton styleClass="btn btn-light" action="#{EgitmenBean.updatForm(e)}" value="update"/>
+                        <h:commandButton styleClass="btn btn-danger" action="#{EgitmenBean.delete(c)}" value="delete"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+    </ui:define>
+</ui:composition>
+
