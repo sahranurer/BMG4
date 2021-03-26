@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+
+    <ui:define name="content">          
+        <h:form>
+
+            <h:commandButton styleClass="btn btn-outline-primary" action="/surucuaday/create" value="Yeni bir ADAY"/>
+
+            <h:dataTable styleClass="table table-hover table-striped mt-3 " value="#{SurucuAdayBean.read}" var="s">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{s.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">AD</f:facet>
+                        #{s.ad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">SOYAD</f:facet>
+                        #{s.soyad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">YAS</f:facet>
+                        #{s.yas}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">EGİTİM DURUMU</f:facet>
+                        #{s.egitim_durumu}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">ADRES</f:facet>
+                        #{s.adres}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ADMİNİSTRATION</f:facet>
+                    <div class="btn-group" role="group" >
+                        <h:commandButton styleClass="btn btn-warning" action="#{SurucuAdayBean.updatForm(s)}" value="GUNCELLE"/>
+                        <h:commandButton styleClass="btn btn-danger" action="#{SurucuAdayBean.delete(s)}" value="SİL"/>
+                    </div>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

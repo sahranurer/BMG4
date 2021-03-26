@@ -8,10 +8,10 @@
  
     <ui:define name="content">          
             <h:form>
-                <h:commandButton styleClass="btn btn-info" action="/index" value="ANASAYFAYA DONMEK İÇİN TIKLAYINIZ"/>
-                <h:commandButton styleClass="btn btn-light" action="/egitmen/create" value="Yeni bir Egitmen"/>
+              
+                <h:commandButton styleClass="btn btn-outline-primary" action="/egitmen/create" value="Yeni bir Egitmen"/>
 
-                <h:dataTable styleClass="table table-hover table-striped" value="#{EgitmenBean.read}" var="cat">
+                <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{EgitmenBean.read}" var="cat">
                     <h:column>
                         <f:facet name="header">ID</f:facet>
                             #{cat.id}
@@ -30,8 +30,10 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">ADMİNİSTRATION</f:facet>
-                        <h:commandButton styleClass="btn btn-light" action="#{EgitmenBean.updatForm(e)}" value="update"/>
+                         <div class="btn-group" role="group">
+                        <h:commandButton styleClass="btn btn-warning" action="#{EgitmenBean.updatForm(e)}" value="update"/>
                         <h:commandButton styleClass="btn btn-danger" action="#{EgitmenBean.delete(c)}" value="delete"/>
+                         </div>
                     </h:column>
                 </h:dataTable>
             </h:form>
