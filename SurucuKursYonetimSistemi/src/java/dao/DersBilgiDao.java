@@ -12,13 +12,13 @@ import util.DBConnection;
 public class DersBilgiDao {
     DBConnection db = new DBConnection();
     Connection c = db.connect();
-    /*
+    
     public DersBilgi getById(int id){
         DersBilgi d = null;
         try {
            
             Statement st = this.connect().createStatement();
-            ResultSet rs = st.executeQuery("select * from ders where id");
+            ResultSet rs = st.executeQuery("select * from ders where id="+id);
             rs.next();
             d = new DersBilgi(rs.getInt("id"),rs.getString("ders_ad"),rs.getString("ders_tur"),rs.getString("ders_kont"));
 
@@ -27,7 +27,7 @@ public class DersBilgiDao {
         }
         return d;
     }
-    */
+    
     
      public void create(DersBilgi d) {
         try {
