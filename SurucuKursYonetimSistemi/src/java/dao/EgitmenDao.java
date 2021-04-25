@@ -23,6 +23,26 @@ public class EgitmenDao {
             System.out.println(ex.getMessage());
         }
     }
+     
+      public Egitmen find(Long id) {
+        Egitmen r = null;
+
+        try {
+             Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from egitmen where id=" + id);
+            rs.next();
+            r = new Egitmen();
+            r.setId(rs.getInt("id"));
+            r.setAd(rs.getString("ad"));
+            r.setSoyad(rs.getString("soyad"));
+            r.setBrans(rs.getString("brans"));
+           
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return r;
+    }
 
     public List<Egitmen> findAll() {
         List<Egitmen> list = new ArrayList<>();

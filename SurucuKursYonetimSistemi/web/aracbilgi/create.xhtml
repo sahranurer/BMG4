@@ -10,19 +10,27 @@
         <h:form>
             <div class="form-group">
                 <label for="example">PLAKA</label>
-                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.plaka}"/>
+                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.plaka}">
+                    <f:validator validatorId="aracValidator"  /> 
+                </h:inputText>
             </div>
             <div class="form-group">
                 <label for="example">ARAC TUR</label>
-                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.arac_tur}"/>
+                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.arac_tur}">
+                    <f:validator validatorId="aracValidator"  /> 
+                </h:inputText>
             </div>
             <div class="form-group">
                 <label for="example">URETİM YİL</label>
-                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.uretim_yil}"/>
+                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.uretim_yil}">
+                    <f:validator validatorId="aracValidator"  /> 
+                </h:inputText>
             </div>
             <div class="form-group">
                 <label for="example">SİGORTA DURUMU</label>
-                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.sigorta_durum}"/>
+                <h:inputText  styleClass="form-control" value="#{AracBilgiBean.aracentity.sigorta_durum}">
+                    <f:validator validatorId="aracValidator"  /> 
+                </h:inputText>
             </div>
            
 
