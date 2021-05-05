@@ -8,7 +8,15 @@
  
     <ui:define name="content">          
             <h:form>
-              
+               <pre>Page #{FaturaBean.page} of #{FaturaBean.pageCount}</pre>
+            <pre></pre>
+            <div class="btn-group">
+                <h:commandButton action="#{FaturaBean.previous()}" value="Previous" styleClass="btn btn-outline-dark"/>
+                <h:commandButton action="#{FaturaBean.next()}" value="Next" styleClass="btn btn-outline-dark"/>
+            </div>
+            <pre>
+                
+            </pre>
                 <h:commandButton styleClass="btn btn-outline-primary" action="/fatura/create" value="Yeni bir Fatura"/>
                 <h:commandButton styleClass="btn btn-outline-primary" action="/surucuaday/list" value="ADAY Listesi"/>
                 <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{FaturaBean.read}" var="cat">

@@ -3,6 +3,7 @@ package dao;
 import entity.Fatura;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,33 @@ public class FaturaDao {
             System.out.println(ex.getMessage());
         }
     }
-    
+    public List<Fatura> findAll(int page,int pageSize) {
+        List<Fatura> faturalist = new ArrayList<>();
+         int start = (page-1)*pageSize;
+        try {
+
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select * from fatura order by fid asc limit " + start + "," + pageSize);
+            while (rs.next()) {
+                Fatura tmp = new Fatura();
+                tmp.setFid(rs.getInt("fid"));
+                tmp.setAdsoyad(rs.getString("adsoyad"));
+                tmp.setIl(rs.getString("il"));
+                tmp.setIlce(rs.getString("ilce"));
+                tmp.setVergino(rs.getInt("vergino"));
+                tmp.setAciklama(rs.getString("aciklama"));
+                tmp.setTutar(rs.getString("tutar"));
+                
+
+                faturalist.add(tmp);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return faturalist;
+    }
+    /*
     public List<Fatura> findAll() {
         List<Fatura> list = new ArrayList<>();
         try {
@@ -37,6 +64,7 @@ public class FaturaDao {
         }
         return list;
     }
+*/
 
     public void update(Fatura e) {
         try {
@@ -46,6 +74,20 @@ public class FaturaDao {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    
+     public int count() {
+      int count = 0;
+        try {
+           
+            Statement st = this.connect().createStatement();
+            ResultSet rs = st.executeQuery("select count(fid) as fatura_count from fatura");
+            rs.next();
+            count = rs.getInt("fatura_count");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return count;
     }
 
     public void delete(Fatura e) {
