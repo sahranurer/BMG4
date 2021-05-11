@@ -7,6 +7,13 @@
         <title>Facelet Title</title>
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputStylesheet library="js" name="bootstrap.js"/>
+        <style type="text/css">
+            p { font-family: Calibri, Verdana; font-size: 24px; color: #808080; text-align: center;
+}
+.yuvarla {
+border-radius: 50%;
+}
+        </style>
     </h:head>
     <h:body>
         <div class="container">
@@ -24,14 +31,15 @@
                                 <h:commandLink styleClass="nav-item nav-link" action="/dersbilgi/list" value="DERSLER"/>
                                 <h:commandLink styleClass="nav-item nav-link" action="/dersprogram/list" value="DERS PROGRAM"/>
                                 <h:commandLink styleClass="nav-item nav-link" action="/aracbilgi/list" value="ARACLAR"/>
-                                 <h:commandLink styleClass="nav-item nav-link" action="/randevuolustur/list" value="RANDEVU OLUŞTUR"/>
-                                 <h:commandLink styleClass="nav-item nav-link" action="/fatura/list" value="FATURALAR"/>
-                                 <h:commandLink styleClass="nav-item nav-link" action="/ehliyet/list" value="EHLİYET"/>
+                                <h:commandLink styleClass="nav-item nav-link" action="/randevuolustur/list" value="RANDEVU OLUŞTUR"/>
+                                <h:commandLink styleClass="nav-item nav-link" action="/fatura/list" value="FATURALAR"/>
+                                <h:commandLink styleClass="nav-item nav-link" action="/ehliyet/list" value="EHLİYET"/>
+                                <h:commandLink styleClass="nav-item nav-link" action="/rapor/list" value="RAPOR"/>
                             </ul>
 
                         </div>
                     </div>
-                    
+
                 </nav>
 
 
@@ -39,7 +47,7 @@
             <div class="mt-3">
 
                 <ui:insert name="content">
-                    İçeriği Doldurulabilir Yerim
+                    
                 </ui:insert>
 
             </div>

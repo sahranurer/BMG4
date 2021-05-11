@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+    <style type="text/css">
+    p { font-family: Calibri, Verdana; font-size: 14px; }
+    </style>
+
+    <ui:define name="content">    
+         <p>RAPOR OLUŞTURMA - DENETLEME SAYFASI</p>
+         <p>ADAY PERFORMANS EKRANI GÖRÜNTÜLENMEKTE...</p>
+        <h:form>
+
+            <h:commandButton styleClass="btn btn-outline-primary" action="/rapor/create" value="Yeni bir RAPOR"/>
+            <h:commandButton styleClass="btn btn-outline-primary" action="/raporegitmen/list" value="EGİTMEN PERFORMANS"/>
+            <h:commandButton styleClass="btn btn-outline-primary" action="/raporsinif/list" value="SINIF PERFORMANS"/>
+           
+            <pre></pre>
+            
+            <div class="btn-group">
+                <h:commandButton action="#{RaporBean.previous()}" value="Previous" styleClass="btn btn-outline-dark"/>
+                <h:commandButton action="#{RaporBean.next()}" value="Next" styleClass="btn btn-outline-dark"/>
+            </div>
+
+            <h:dataTable styleClass="table table-hover table-striped mt-3 " value="#{RaporBean.read}" var="ro">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{ro.rap_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">AD SOYAD</f:facet>
+                        #{ro.radsoyad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">EHLİYET</f:facet>
+                        #{ro.ehliyet}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">PERFORMANS</f:facet>
+                        #{ro.performans}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">EGİTMEN AD</f:facet>
+                        #{ro.egitmenad}
+                </h:column>
+            
+                <h:column>
+                    <f:facet name="header">ADMİNİSTRATION</f:facet>
+                    <div class="btn-group" role="group" >
+                        <h:commandButton styleClass="btn btn-warning" action="#{RaporBean.updatForm(ro)}" value="GUNCELLE"/>
+                        <h:commandButton styleClass="btn btn-danger" action="#{RaporBean.delete(ro)}" value="SİL"/>
+                    </div>
+                </h:column>
+            </h:dataTable>
+            <pre>Page #{RaporBean.page} of #{RaporBean.pageCount}</pre>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml">
+ <style type="text/css">
+    p { font-family: Calibri, Verdana; font-size: 14px; }
+    </style>
+    <ui:define name="content">          
+        <h:form>
+            <p>SINIF PERFORMANS EKRANI GÖRÜNTÜLENMEKTE...</p>
+
+            <h:commandButton styleClass="btn btn-outline-primary" action="/raporsinif/create" value="Yeni bir RAPOR SINIF"/>
+           
+            <pre></pre>
+            <div class="btn-group">
+                <h:commandButton action="#{RaporSinifBean.previous()}" value="Previous" styleClass="btn btn-outline-dark"/>
+                <h:commandButton action="#{RaporSinifBean.next()}" value="Next" styleClass="btn btn-outline-dark"/>
+            </div>
+
+            <h:dataTable styleClass="table table-hover table-striped mt-3 " value="#{RaporSinifBean.read}" var="ro">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{ro.s_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">SINIF-AD</f:facet>
+                        #{ro.sinif_ad}
+                </h:column>
+                
+                 <h:column>
+                    <f:facet name="header">PERFORMANS</f:facet>
+                        #{ro.performans}
+                </h:column>
+               
+            
+                <h:column>
+                    <f:facet name="header">ADMİNİSTRATION</f:facet>
+                    <div class="btn-group" role="group" >
+                        <h:commandButton styleClass="btn btn-warning" action="#{RaporSinifBean.updatForm(ro)}" value="GUNCELLE"/>
+                        <h:commandButton styleClass="btn btn-danger" action="#{RaporSinifBean.delete(ro)}" value="SİL"/>
+                    </div>
+                </h:column>
+            </h:dataTable>
+            <pre>Page #{RaporSinifBean.page} of #{RaporSinifBean.pageCount}</pre>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
