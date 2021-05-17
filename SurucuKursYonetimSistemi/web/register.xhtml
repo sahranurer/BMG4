@@ -1,22 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>SURUCU KURSU YONETİM SİSTEMİ</title>
-        <h:outputStylesheet library="css" name="bootstrap.css"/>
-        <h:outputStylesheet library="js" name="bootstrap.js"/>
-        <style type="text/css">
-            p { font-family: Calibri, Verdana; font-size: 24px; color: #808080; text-align: center;
-}
-.yuvarla {
-border-radius: 50%;
-}
-        </style>
-    </h:head>
-    <h:body>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="/template/admin.xhtml">
+    <ui:define name="content">
+        <h1>Register</h1>
         <div class="container">
+                <h:form>
+            <h:commandButton action="/index?faces-redirect=true" value="Index"/>
+            <h:commandButton action="/login?faces-redirect=true" value="Login"/>
+            <h:commandButton action="/logout?faces-redirect=true" value="Logout"/>
+            <h:commandButton action="/register?faces-redirect=true" value="Register"/>
+            <h:commandButton action="/secret/secret?faces-redirect=true" value="Secret"/>
+             <div class="container">
             <h:form>
                 <nav class="navbar navbar-expand-xl navbar-light bg-light">
                     <div class="container-fluid">
@@ -96,6 +94,7 @@ border-radius: 50%;
 
             </div>
         </div>
-    </h:body>
-</html>
-
+        </h:form>
+            </div>
+    </ui:define>
+</ui:composition>
